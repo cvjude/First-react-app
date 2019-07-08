@@ -1,16 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import App from "./App";
 
 const Index = () => {
-  return (
-    <div>
-      Hello React!
-      <ul>
-        <li>I'm learning react</li>
-        <li>Although I don't fully umnderstand react</li>
-      </ul>
-    </div>
-  );
+  return <App />;
 };
 
-ReactDOM.render(<Index />, document.getElementById("index"));
+render(<Index />, document.getElementById("index"));

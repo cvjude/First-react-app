@@ -22,7 +22,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot",
+    "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
   "keywords": [
