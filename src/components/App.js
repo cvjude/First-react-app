@@ -9,6 +9,21 @@ class App extends Component {
     this.state = {
       todos: todoData
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(id) {
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
+      return {
+        todos: updatedTodos
+      };
+    });
   }
 
   render() {
@@ -16,8 +31,8 @@ class App extends Component {
     const todoComponents = todos.map(todoItem => (
       <TodoItem
         key={todoItem.id}
-        todo={todoItem.text}
-        checked={todoItem.completed}
+        todo={todoItem}
+        handleChange={this.handleChange}
       />
     ));
 
