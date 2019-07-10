@@ -1,19 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
+import TodoItem from "./TodoItem";
+import todoData from "../models/todoData";
 import style from "../styles/style.css";
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
-    super(); //so our class has all the things in the global object
+    super();
     this.state = {
-      isLoggedIn: false
+      todos: todoData
     };
   }
+
   render() {
-    return (
-      <div>
-        <h1>You are currently logged {this.state.isLoggedIn ? "in" : "out"}</h1>
-      </div>
-    );
+    const { todos } = this.state;
+    const todoComponents = todos.map(todoItem => (
+      <TodoItem
+        key={todoItem.id}
+        todo={todoItem.text}
+        checked={todoItem.completed}
+      />
+    ));
+
+    return <div className="todo-list">{todoComponents}</div>;
   }
 }
 
