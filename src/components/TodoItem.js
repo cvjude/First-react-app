@@ -1,5 +1,4 @@
 import React from "react";
-import style from "../styles/style.css";
 
 const TodoItem = props => {
   const { todo, handleChange } = props;
