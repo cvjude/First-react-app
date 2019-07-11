@@ -1,31 +1,32 @@
 import React, { Component } from "react";
+import Time from "./time";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLoggedIn: false
+      update: false
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleTime = this.handleTime.bind(this);
   }
 
-  handleClick() {
+  handleTime() {
     this.setState(prevState => {
-      return {
-        isLoggedIn: !prevState.isLoggedIn
-      };
+      return { update: !prevState.update };
     });
   }
 
+  componentDidMount() {
+    this.setState(prevState => {
+      return { update: !prevState.update };
+    });
+    console.log("Mounted Once", this.state);
+  }
+
   render() {
-    console.log(this.state.isLoggedIn);
-    const isLog = this.state.isLoggedIn
-      ? ["Logout", "Logged out"]
-      : ["Login", "Logged In"];
     return (
       <div>
-        <h2>{isLog[1]}</h2>
-        <button onClick={this.handleClick}>{isLog[0]}</button>
+        <Time date={new Date()} handleTime={this.handleTime} self={this} />
       </div>
     );
   }
