@@ -1,9 +1,91 @@
-input + input,
-input + label,
-label + select {
-  display: block;
+body {
+  margin: 0;
+  background: whitesmoke;
 }
 
-h4 > p {
-  display: inline;
+header {
+  height: 100px;
+  display: flex;
+  align-content: center;
+  background: #6441a5;
+  padding-left: 300px;
+  background: linear-gradient(to right, #2a0845, #6441a5);
+}
+
+header > img {
+  height: 80%;
+  margin-left: 10%;
+}
+
+header > p {
+  font-family: VT323, monospace;
+  color: whitesmoke;
+  font-size: 50px;
+  margin-left: 60px;
+}
+
+.meme {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.meme > img {
+  width: 500px;
+  height: 500px;
+}
+
+.meme > h2 {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
+    -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
+    2px 2px 5px #000;
+}
+
+.meme > .bottom {
+  bottom: 0;
+}
+
+.meme > .top {
+  top: 0;
+}
+
+.meme-form > button {
+  border: none;
+  font-family: VT232, monospace;
+  font-size: 25px;
+  height: 36px;
+  letter-spacing: 1px;
+  color: white;
+  background: #6441a5;
+  margin: 10px 0;
+}
+
+.meme-form > input {
+  height: 30px;
+  width: 300px;
+  margin: 10px 0;
+}
+
+.meme-form > input::-webkit-input-placeholder {
+  font-family: VT232, monospace;
+  font-size: 25px;
+  text-align: center;
+}
+
+div > form {
+  display: flex;
+  justify-content: center;
 }
