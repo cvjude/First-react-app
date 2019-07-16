@@ -11,29 +11,35 @@ const cssPlugin = new MiniCssExtractPlugin({
   chunkFilename: "[id].css"
 });
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
+module.exports = (env, argv) => {
+  const { mode } = argv;
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader"
           }
-        ]
-      }
-    ]
-  },
-  plugins: [htmlPlugin, cssPlugin]
+        },
+        {
+          test: /\.css$/,
+          exclude: /node_modules/,
+          use: [
+            mode === "development"
+              ? "style-loader"
+              : MiniCssExtractPlugin.loader,
+            {
+              loader: "css-loader"
+            }
+          ]
+        }
+      ]
+    },
+    plugins: [htmlPlugin, cssPlugin],
+    devServer: {
+      historyApiFallback: true
+    }
+  };
 };
